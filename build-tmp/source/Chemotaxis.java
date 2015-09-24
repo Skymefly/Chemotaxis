@@ -19,31 +19,33 @@ public class Chemotaxis extends PApplet {
  Bacteria [] colony;
  int x;
  int y;
- boolean alive;
- int BacteriaColor = color(245, 147, 168);   
+ boolean alive=true;
+ int Size=5;
+ int BacteriaColor = color(245, 147, 168); 
+ int BacteriaColor1 = color(147, 245, 168);
+ int BacteriaColor2 = color(168, 147, 245);  
  public void setup()   
  {     
  	//initialize bacteria variables here
- 	//background(0);
+ 	background(0);
  	size(400, 400);
- 	colony = new Bacteria[1200];
+ 	colony = new Bacteria[10];
  	for (int i=0; i<colony.length; i++)
  	{
  		colony[i]=new Bacteria(200,200);
  	} 
- 	alive=true;
  }   
  public void draw()   
  {    
  	//move and show the bacteria
- 	background(0);
+// 	fill(255, 0, 0);
+// 	ellipse(mouseX, mouseY, Size, Size);
  	for (int i=0; i<colony.length; i++)
  	{
  		colony[i].move();
  		colony[i].show();
  	} 
- 	fill(255, 0, 0);
- 	ellipse(mouseX, mouseY, 10, 10);
+ 	
  }  
  class Bacteria    
  {     
@@ -59,20 +61,38 @@ public class Chemotaxis extends PApplet {
  		if (get(myX,myY)==color(255,0,0))
  		{
  			alive=false;
+ 			Size++;
  		}
  		if (alive==true)
  		{
 		 	noStroke();
 		 	fill(BacteriaColor);
 		 	ellipse(myX, myY, 2, 2);
-		 	//fill(255,255,255,10);
-		 	//ellipse(myX, myY, 5, 5);
+		 	fill(255,255,255,10);
+		 	ellipse(myX, myY, 7, 7);
+		 	fill(BacteriaColor1);
+		 	ellipse(myX+3, myY-3, 2, 2);
+		 	fill(255,255,255,10);
+		 	ellipse(myX+3, myY-3, 7, 7);
+		 	fill(BacteriaColor2);
+		 	ellipse(myX-3, myY+3, 2, 2);
+		 	fill(255,255,255,10);
+		 	ellipse(myX-3, myY+3, 7, 7);
+		 	fill(BacteriaColor1);
+		 	ellipse(myX+3, myY+3, 2, 2);
+		 	fill(255,255,255,10);
+		 	ellipse(myX+3, myY+3, 7, 7);
+		 	fill(BacteriaColor2);
+		 	ellipse(myX-3, myY-3, 2, 2);
+		 	fill(255,255,255,10);
+		 	ellipse(myX-3, myY-3, 7, 7);
 	 	}
  	}
  	public void move()
  	{
-	 		myX=myX+((int)((Math.random()*10)-5));
-	 		myY=myY+((int)((Math.random()*10)-5));
+		myX=myX+((int)((Math.random()*20)-10));
+	 	myY=myY+((int)((Math.random()*20)-10));
+	 	
  	}
 
  }    
