@@ -15,7 +15,6 @@ import java.io.IOException;
 public class Chemotaxis extends PApplet {
 
  //declare bacteria variables here
- int [] Bacteria;
  Bacteria [] colony;
  int x;
  int y;

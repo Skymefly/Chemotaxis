@@ -1,5 +1,4 @@
  //declare bacteria variables here
- int [] Bacteria;
  Bacteria [] colony;
  int x;
  int y;
